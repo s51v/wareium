@@ -4,12 +4,13 @@
     --bg_color: #fce3f1;
     --text_color: #000000;
     --border-color: #000000;
-    --font-family: "Press Start 2P";
 }
 
 html {
     background-color: var(--bg_color);
     color: var(--text_color);
     border: var(--border-color);
+    font-family: "Press Start 2P";
     border-radius: 20px;
+    text-align: center;
 }
