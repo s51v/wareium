@@ -1,31 +1,17 @@
 // script for functionality on the entire site, epic1!!!!
 
-function Clock(){
-    var date = new Date();
-    var h = date.getHours();
-    var m = date.getMinutes();
-    var s = date.getSeconds();
-    var session = "AM";
-    
-    if(h == 0){
-        h = 12;
-    }
-    
-    if(h > 12){
-        h = h - 12;
-        session = "PM";
-    }
-    
-    h = (h < 10) ? "0" + h : h;
-    m = (m < 10) ? "0" + m : m;
-    s = (s < 10) ? "0" + s : s;
-    
-    var time = h + ":" + m + ":" + s + " " + session;
-    document.getElementById("clock").innerText = time;
-    document.getElementById("clock").textContent = time;
-    
-    setTimeout(showTime, 1000);
-    
+function Clock() {
+  const today = new Date();
+  let h = today.hours();
+  let m = today.minutes();
+  let s = today.seconds();
+  m = getTime(m);
+  s = getTime(s);
+  document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
 }
 
-Clock();
+function getTime(i) {
+  if (i < 10) {i = "0" + i};
+  return i;
+}
