@@ -1,17 +1,18 @@
 // script for functionality on the entire site, epic1!!!!
 
-function Clock() {
-  const today = new Date();
-  let h = today.hours();
-  let m = today.minutes();
-  let s = today.seconds();
-  m = getTime(m);
-  s = getTime(s);
-  document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s;
-  setTimeout(startTime, 1000);
-}
-
-function getTime(i) {
-  if (i < 10) {i = "0" + i};
-  return i;
+function updateTime() {
+    const time = document.getElementById('clock');
+    const now = new Date();
+    
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    
+    const day = now.getDate().toString().padStart(2, '0');
+    const month = (now.getMonth() + 1).toString().padStart(2, '0'); 
+    
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    const dateString = `${day}/${month}`;
+    
+    time.textContent = `${dateString} • ${timeString}`;
 }
